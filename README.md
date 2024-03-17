@@ -22,14 +22,14 @@ This sample can be deployed to the Azure cloud provider by using the **[Azure De
 
 This **[post](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth?tabs=windows)** explains how to deploy the application to Azure.  It's straight forward.  If you're familiar with AZD, there's nothing new to do here.
 
-However, when I tried this I got the following when deploying one of the following webfrontend or apiservice:
+However, when I tried this I got the following when deploying webfrontend or apiservice:
 
 > [!CAUTION]  
 > error CONTAINER1013: Failed to push to the output registry: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing
 
 This error is mentioned **[here](https://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/#addendum)**.
 
-Since trying this the first time, both Aspire and AZD have had updated.  I had hoped with both of these components updated, it'll fix this documented issue. To update these components I executed the following:
+Since trying this the first time, both Aspire and AZD have had updates.  I had hoped with both of these components updated, it'll fix this documented issue. To update these components:
 
 ```powershell
 # Update Aspire to Preview 4
@@ -42,7 +42,7 @@ winget update Microsoft.Azd
 
 This did not fix the issue.
 
-Not wanting this to end without success for a second time, I revisited the GitHub Issue included in the above post.  It hadn't been addressed.  I continued looking for a possible fix.  I then came acros this **[discussion](https://github.com/Azure/azure-dev/discussions/3212)** and from this I set the environment variable `SDK_CONTAINER_DEBUG_REGISTRY_FORCE_CHUNKED_UPLOAD=true`.
+Not wanting this to end without success for a second time, I revisited the GitHub Issue included in the above post.  It hadn't been addressed.  I continued looking for a possible fix.  I then came acros this **[discussion](https://github.com/Azure/azure-dev/discussions/3212)** and from this I set the environment variable `SDK_CONTAINER_DEBUG_REGISTRY_FORCE_CHUNKED_UPLOAD`.
 
 By setting this, the chunks will only be 64kB which might cause a slow upload, but this I can live with [for now]:
 
