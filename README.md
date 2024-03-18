@@ -1,12 +1,14 @@
 # Getting started
 
-This relates to my blob post called **[.NET Aspire and Redis](https://blog.garrardkitchen.com/dotneet-aspire-and-redis)**.
+This relates to my blob post called **[.NET Aspire and Redis](https://blog.garrardkitchen.com/posts/dotnet-aspire-and-redis/)**.
 
 ## Prerequisite
 
 - Docker for Desktop
 - .NET Aspire workload
-- Visual Studio 2022 Community edition
+- Visual Studio 2022 Community edition (or VSCode with the C# Dev Kit extension)
+- Azure CLI (if deploying to Azure)
+- Azure Developer CLI (if deploying to Azure)
 
 ## How to run
 
